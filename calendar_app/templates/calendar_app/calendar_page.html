@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block header %}
+<script src="/static/js/calendar_app.js"></script>
+{% endblock header %}
+{% block content %}
+<div class="container-fluid">
+<div class="container-fluid col-lg-6 offset-xs-0 offset-lg-3 col-xs-12">
+  <div class="row">
+    {% include "calendar_app/header.html" %}
+  </div>
+</div>
+<div class="container-fluid col-lg-6 offset-xs-0 offset-lg-3 col-xs-12">
+  <div class="row">
+{% include "calendar_app/month-choose.html" %}
+  </div>
+  <div class="row">
+{% include "calendar_app/month-content.html" %}
+  </div>
+  <div class="row">
+{% include "calendar_app/day-todo.html" %}
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="month-choose row">
+    <div class="col-md-4 text-right">
+      <a href="/month/{{ prevMonthLink }}">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
+        </span>
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <span>
+        <a href="/month/{{ year }}-1/">{{ year }}</a>, 
+        <a href="/month/{{ year }}-{{ month }}">{{ monthName }}</a>
+      </span>
+    </div>
+    <div class="col-md-4 text-left">
+      <a href="/month/{{ nextMonthLink }}/">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

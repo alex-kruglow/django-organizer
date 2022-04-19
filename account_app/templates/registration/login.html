@@ -1,0 +1,46 @@
+{% extends "account_app/empty.html" %}
+
+{% block content %}
+<div class="form-container">
+<form action="{% url 'login' %}" method="post" class="form-auth">
+  <h1 class="mb-4 h3 font-weight-bold">Calendar</h1>
+  <h2 class="mb-3 h3 font-weight-normal">Login</h2>
+
+  {% if form.errors %}
+  <p>Login error. Try again.</p>
+  {% endif %}
+  {% csrf_token %}
+  <label for="id_username" class="sr-only">Username</label>
+  <input
+    type="TEXT"
+    id="id_username"
+    name="username"
+    class="form-control"
+    placeholder="Username"
+    required
+    autofocus
+  >
+  <label for="id_password" class="sr-only">Password</label>
+  <input
+    type="password"
+    id="id_password"
+    name="password"
+    class="form-control"
+    placeholder="Password"
+    required
+  >
+  <input type="hidden" name="next" value="{{ next }}" />
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Login
+  </button>
+</form>
+<div class="row mt-5">
+  <div class="col-md-6 text-center">
+    <a href="{% url "register" %}">Register</a>
+  </div>
+  <div class="col-md-6 text-center">
+    <a href="{% url "password-reset" %}">Reset password</a>
+  </div>
+</div>
+</div>
+{% endblock content %}

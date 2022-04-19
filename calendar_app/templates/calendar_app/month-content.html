@@ -1,0 +1,33 @@
+<div class="month-content container-fluid">
+  <table class="table table-bordered mt-5">
+    <thead>
+    <tr>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for week in monthContent %}
+      <tr>
+        {% for day in week %}
+          {% if day.disabled %}<td class="table-active">
+          {% elif day.active %}<td class="table-danger">
+          {% elif day.selected %}<td class="table-success">
+          {% elif day.contained %}<td class="table-info">
+          {% else %}<td>
+          {% endif %}
+            <a href="/day/{{day.date|date:"Y-m-d" }}/">
+          {{ day.date|date:"D d" }}
+          {% if not day.disabled %}</a>{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

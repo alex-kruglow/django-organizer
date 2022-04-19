@@ -1,0 +1,47 @@
+{% extends "account_app/empty.html" %}
+
+{% block content %}
+<div class="form-container">
+<form action="{% url 'register' %}" method="POST" class="form-auth">
+  <h1 class="mb-4 h3 font-weight-bold">Calendar</h1>
+  <h2 class="mb-3 h3 font-weight-normal">Register</h2>
+  {% csrf_token %}
+  <label for="id_username" class="sr-only">Username</label>
+  <input
+    type="TEXT"
+    id="id_username"
+    name="username"
+    class="form-control"
+    placeholder="Username"
+    required
+    autofocus
+  >
+  <label for="id_password" class="sr-only">Password</label>
+  <input
+    type="PASSWORD"
+    id="id_password"
+    name="password"
+    class="form-control"
+    placeholder="Password"
+    required
+  >
+  <label for="id_passwordRepeat" class="sr-only">Password Repeat</label>
+  <input
+    type="PASSWORD"
+    id="id_passwordRepeat"
+    name="passwordRepeat"
+    class="form-control"
+    placeholder="Password Repeat"
+    required
+  >
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Register
+  </button>
+</form>
+<div class="row mt-5">
+  <div class="col-md-12 text-center">
+    <a href="{% url "login" %}">Login</a>
+  </div>
+</div>
+</div>
+{% endblock content %}
